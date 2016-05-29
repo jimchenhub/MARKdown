@@ -1,0 +1,63 @@
+html {
+    height: 100%;
+    -webkit-user-select: none; /* 禁用掉了文本选择,防止一些被作为按钮的a标签的文本被选中 */
+}
+
+a,a:focus{
+    outline:none;
+}
+
+/**************   Navbar   ****************/
+
+/* make sure app windows can be draged.
+带有此样式的元素可以作为窗口的拖拽区域,并且双击时最大化/还原窗口. */
+.navbar{
+    -webkit-app-region: drag;
+}
+/* 被标志为可drag的容器里的链接将不可点击,因此要特别为链接加上no-drag */
+.navbar .navbar-collapse a {
+    -webkit-app-region: no-drag;
+}
+
+.navbar .navbar-header img {
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin-top: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.navbar .navbar-header {
+    width: 200px;
+}
+
+.navbar .container {
+    max-width: none;
+}
+
+.window-tool {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+.window-tool a.rectbtn {
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 0 !important;
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    color: #fff;
+}
+
+.window-tool a.rectbtn:hover {
+    background-color: #3f3f3f !important;
+}
+
+.window-tool a.rectbtn:active {
+    background-color: #007ACC !important;
+}
+
+/***************   End of Navbar   ****************/

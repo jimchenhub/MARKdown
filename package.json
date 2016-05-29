@@ -1,0 +1,16 @@
+{
+    "name": "MARKdown",
+    "version": "0.0.1",
+    "main": "src/index.html",
+    "window": {
+        "title": "MARK down",
+        "icon": "src/img/icon256.png",
+        "frame": true,
+        "toolbar": true,
+        "width": 1000,
+        "height": 700,
+        "position": "center",
+        "min_width": 600,
+        "min_height": 400
+    }
+}

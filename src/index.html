@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Markdown Demo</title>
+  <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="lib/codemirror/lib/codemirror.css" rel="stylesheet" />
+  <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+  
+  <!--导航栏-->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <img src="img/logo.png" alt="MARKdown">
+        <a href="#" class="navbar-brand">MARKdown</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <!--子窗口菜单-->
+        <ul class="nav navbar-nav" id="navlist" >
+          <li class="studio"><a href="#/studio">编辑器</a></li>
+          <li class="bucket"><a href="#/bucket">文件管理</a></li>
+          <li class="system"><a href="#/system">系统设置</a></li>
+        </ul>
+        <!--导航栏功能按钮-->
+        <div class="btn-group window-tool">
+          <a class="btn rectbtn" href="javascript://" title="点击检查更新" hmd-update><i class="glyphicon glyphicon-circle-arrow-down"></i></a>
+          <a class="btn rectbtn" href="#" markdown-minisize><i class="glyphicon glyphicon-minus"></i></a>
+          <a class="btn rectbtn" href="#" markdown-max-toggle><i class="glyphicon glyphicon-fullscreen"></i></a>
+          <a class="btn rectbtn" href="#" markdown-close><i class="glyphicon glyphicon-remove"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!--模块视图区域-->
+  <article class="container app" ui-view ng-animate="'view'"></article>
+  <!--工具栏-->
+  <footer class="tool"></footer>
+  
+  <!-- codemirror -->
+  <script src="lib/codemirror/lib/codemirror.js"></script>
+  <script src="lib/codemirror/addon/mode/overlay.js"></script>
+  <script src="lib/codemirror/addon/edit/continuelist.js"></script>
+  <script src="lib/codemirror/mode/markdown/markdown.js"></script>
+  <script src="lib/codemirror/mode/gfm/gfm.js"></script>
+  <!--end codemirror-->
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!--程序入口函数-->
+  <script src="modules/app.js"></script>
+  <script src="modules/directives.js"></script>
+  <script>
+    //初始化angular,hmd为自定义的根模块名
+    angular.bootstrap($('body'), ['markdown']);
+  </script>
+</body>
+</html>

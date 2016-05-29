@@ -1,0 +1,26 @@
+{
+  "name": "markdown",
+  "authors": [
+    "Jim Chen"
+  ],
+  "description": "Use NW.js create markdown editor",
+  "keywords": [
+    "markdown",
+    "NW.js"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "angular": "~1.4.11",
+    "bootstrap": "^3.3.6",
+    "angular-ui-router": "^0.3.0"
+  }
+}
