@@ -13,6 +13,8 @@ a,a:focus{
 带有此样式的元素可以作为窗口的拖拽区域,并且双击时最大化/还原窗口. */
 .navbar{
     -webkit-app-region: drag;
+    border: 0;
+    -webkit-box-shadow: 0 3px 3px #111;
 }
 /* 被标志为可drag的容器里的链接将不可点击,因此要特别为链接加上no-drag */
 .navbar .navbar-collapse a {
@@ -39,10 +41,11 @@ a,a:focus{
 .window-tool {
     position: absolute;
     right: 5px;
-    top: 10px;
+    top: 0px;
 }
 
 .window-tool a.rectbtn {
+    margin-top: 10px;
     padding-left: 9px;
     padding-right: 9px;
     border-radius: 0 !important;
@@ -61,3 +64,9 @@ a,a:focus{
 }
 
 /***************   End of Navbar   ****************/
+
+/*************** navbar *****************/
+.app {
+    padding: 0;
+    margin: 0;
+}

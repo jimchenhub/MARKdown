@@ -1,0 +1,19 @@
+{
+  "name": "markdown",
+  "version": "0.0.1",
+  "description": "use NW.js to create a desktop markdown editor app",
+  "main": "modules/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/jimchenhub/MARKdown.git"
+  },
+  "keywords": [
+    "nw.js",
+    "markdown"
+  ],
+  "author": "Jim Chen",
+  "license": "MIT"
+}

@@ -1,0 +1,13 @@
+.studio-wrap {
+    position: absolute;
+    top: 50px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+.CodeMirror {
+    height: 100%;
+    padding: 10px 5px;
+}

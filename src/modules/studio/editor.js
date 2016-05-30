@@ -1,5 +1,5 @@
 (function(){
-    var util = require('./helper/util');
+    var ut = require('./helper/util.js');
     var defaultConfig = {
         theme: 'ambiance',
         mode: 'gfm',
@@ -44,8 +44,8 @@
         },
         // 设置当前文件
         setFile: function(filepath){
-            var txt = util.readFileSync(filepath);
-            alert(txt);
+            console.log(filepath);
+            var txt = ut.readFileSync(filepath);
             this.filepath = filepath;
             this.cm.setValue(txt);
         },
@@ -57,7 +57,7 @@
         save: function(){
             var txt = this.cm.getValue();
             if(this.filepath){
-                util.writeFileSync(this.filepath, txt);
+                ut.writeFileSync(this.filepath, txt);
                 this.hasChange = false;
                 var fileNameArr = this.filepath.split('/');
                 markdown.msg('文件:' + fileNameArr[fileNameArr.length - 1] + '保存成功!');

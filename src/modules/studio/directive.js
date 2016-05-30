@@ -3,7 +3,7 @@
       
     studio.directive('markdownEditor', function () {
       return function (scope, elem) {
-        markdown.editor.init({el:elem[0]}, "/Users/chenlvjie/Documents/learnNWjs/README.md");
+        markdown.editor.init({el:elem[0]}, "/Users/chenlvjie/Documents/GitHub/MARKdown/README.md");
       };
     });
 })();
