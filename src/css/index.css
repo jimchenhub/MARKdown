@@ -3,6 +3,12 @@ html {
     -webkit-user-select: none; /* 禁用掉了文本选择,防止一些被作为按钮的a标签的文本被选中 */
 }
 
+body {
+    overflow: hidden;
+    color: #fff;
+    background: #e1e1e1;
+}
+
 a,a:focus{
     outline:none;
 }

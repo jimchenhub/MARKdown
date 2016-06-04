@@ -2,6 +2,13 @@
     var markdown = global.markdown = angular.module('markdown', ['ui.router', 'markdown.directives', 'markdown.studio']);
     var fs = require('fs'),
         baseModuleDir = './src/modules/';
+    var msgTimer = null;
+    var MSG_LEVEL = {
+        info: 'info',
+        warning: 'warning',
+        debug: 'debug',
+        error:'error'
+    };
         
     markdown.storeDir =  nw.App.dataPath; // data storage path
 
@@ -17,6 +24,25 @@
                 document.write('<script src="modules/' + name + '/' + file + '"></script>');
             }
         });
+     };
+
+     //状态栏消息
+     markdown.msg = function(txt, lv){
+        lv = lv || MSG_LEVEL.info;
+        $("#msg")
+        .removeClass(MSG_LEVEL.info)
+        .removeClass(MSG_LEVEL.warning)
+        .removeClass(MSG_LEVEL.debug)
+        .removeClass(MSG_LEVEL.error)
+        .addClass(lv).text(txt);
+        clearTimeout(msgTimer);
+        msgTimer = setTimeout(function () {
+            $('#msg')
+            .removeClass(MSG_LEVEL.info)
+            .removeClass(MSG_LEVEL.warning)
+            .removeClass(MSG_LEVEL.debug)
+            .removeClass(MSG_LEVEL.error);
+        }, 5000);
      };
 
      // 引入模块

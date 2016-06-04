@@ -1,5 +1,6 @@
 (function(){
     var ut = require('./helper/util.js');
+    var fs = require('fs');
     var defaultConfig = {
         theme: 'ambiance',
         mode: 'gfm',
@@ -39,18 +40,35 @@
             this.cm.addKeyMap({
                 "Ctrl-S": function () {
                     me.save();
+                },
+                "Cmd-S": function() {
+                    me.save();
                 }
             });
         },
         // 设置当前文件
         setFile: function(filepath){
-            console.log(filepath);
-            var txt = ut.readFileSync(filepath);
-            this.filepath = filepath;
-            this.cm.setValue(txt);
+            if (filepath && fs.existsSync(filepath)) {
+                var txt = ut.readFileSync(filepath);
+                this.filepath = filepath;
+                this.cm.setValue(txt);
+            } else {
+                this.filepath = null;
+                this.cm.setValue('');
+            }
         },
         // 弹出保存文件对话框
         saveAs: function(){
+            var me = this;
+            this.saveAsInput = $('<input style="display:none;" type="file"  accept=".md" nwsaveas/>');
+            this.saveAsInput[0].addEventListener("change", function (evt) {
+                if(this.value){
+                    me.filepath = this.value;
+                    me.save();
+                }
+            }, false);
+            this.saveAsInput.trigger('click');
+
             markdown.msg('保存新文件');
         },
         // 保存文件
@@ -61,11 +79,21 @@
                 this.hasChange = false;
                 var fileNameArr = this.filepath.split('/');
                 markdown.msg('文件:' + fileNameArr[fileNameArr.length - 1] + '保存成功!');
-                this.fire('save');
+                this.fire('saved', this.filepath);
             }
             else{
                 this.saveAs();
             }
+        },
+        openFile:function(){
+            var me = this;
+            this.openFileInput = $('<input style="display:none;" type="file"  accept=".md"/>');
+            this.openFileInput[0].addEventListener("change", function (evt) {
+                if(this.value){
+                    me.setFile(this.value);
+                }
+            }, false);
+            this.openFileInput.trigger('click');
         },
         events: {},
         fire: function(eventName, obj){

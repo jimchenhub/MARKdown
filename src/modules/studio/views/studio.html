@@ -1,3 +1,12 @@
 <div class="content studio-wrap">
    <textarea markdown-editor></textarea>
 </div>
+<footer class="tool">
+  <!--状态栏消息-->
+  <section class="msg" id="msg"></section>
+  <section class="btn-group studio-btn-group">
+    <a href="javascript://" class="btn btn-default" title="新建文件" studio-newfile><i class="glyphicon glyphicon glyphicon-file"></i></a>
+    <a href="javascript://" class="btn btn-default" title="打开文件" ng-click="openTerminal()" studio-openfile><i class="glyphicon glyphicon-folder-open"></i></a>
+    <a href="javascript://" class="btn btn-default" title="保存更改(Ctrl+S)" ng-class="{'disabled':!editorChanged}" studio-save><i class="glyphicon glyphicon-floppy-disk"></i></a>
+  </section>
+</footer>
