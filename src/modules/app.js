@@ -1,5 +1,5 @@
 (function(global){
-    var markdown = global.markdown = angular.module('markdown', ['ui.router', 'markdown.directives', 'markdown.studio']);
+    var markdown = global.markdown = angular.module('markdown', ['ui.router', 'markdown.directives', 'markdown.studio', 'markdown.system']);
     var fs = require('fs'),
         baseModuleDir = './src/modules/';
     var msgTimer = null;
@@ -9,7 +9,7 @@
         debug: 'debug',
         error:'error'
     };
-        
+
     markdown.storeDir =  nw.App.dataPath; // data storage path
 
     // 引入模块,模块内js文件会被自动加载到页面中
@@ -45,8 +45,16 @@
         }, 5000);
      };
 
+     // 改变当前导航栏切换
+     markdown.changeStatus = function(state){
+         var navList = $("#navlist");
+         navList.find("li").removeClass("active");
+         navList.find("."+state).addClass("active");
+     };
+
      // 引入模块
      markdown.regModule('studio');
+     markdown.regModule('system');
 
      // routes
      markdown.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
